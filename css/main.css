@@ -1,0 +1,128 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+/* Abstracts */
+:root {
+  --bg-primary: #f7f7f7;
+  --primary-clr: #fac700;
+  --tertiary-clr: #231e41;
+  --text-clr: black;
+  --logo-size: 150px;
+  --fs-lg: 2rem;
+  --fs-md: 1.5rem;
+  --fs-sm: 1rem;
+  --fw-bold: 700;
+  --fw-semibold: 500;
+  --fw-regular: 400;
+  --primary-shadow: 0px 15px 5px -15px #919191;
+  --secondary-shadow: 15px 0px 10px -15px #919191; }
+
+/* Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+body {
+  font-family: 'Roboto Mono', monospace;
+  background-color: var(--bg-primary);
+  color: var(--text-clr);
+  width: 100vw; }
+
+/* Layouts */
+header .navbar {
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  box-shadow: var(--primary-shadow);
+  height: 5rem; }
+  header .navbar .nav-desktop {
+    flex: 1 0 45%; }
+    header .navbar .nav-desktop .nav-list {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      list-style: none;
+      flex-wrap: wrap;
+      font-size: var(--fs-sm); }
+      header .navbar .nav-desktop .nav-list .nav-item {
+        padding: 0.3em 0.2em;
+        position: relative; }
+        header .navbar .nav-desktop .nav-list .nav-item a {
+          font-size: 1em;
+          text-decoration: none;
+          color: var(--primary-clr); }
+        header .navbar .nav-desktop .nav-list .nav-item::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          height: 2px;
+          width: 100%;
+          background-color: var(--primary-clr);
+          transform: scale(0);
+          transform-origin: right;
+          transition: transform 500ms; }
+        header .navbar .nav-desktop .nav-list .nav-item:hover::after {
+          transform: scale(1);
+          transform-origin: left; }
+  header .navbar .nav-tablet {
+    display: none;
+    position: relative; }
+    header .navbar .nav-tablet input[type="checkbox"] {
+      position: absolute;
+      top: 50%;
+      left: 0.5rem;
+      opacity: 0;
+      cursor: pointer;
+      transform: translateY(-50%) scale(2.5); }
+      header .navbar .nav-tablet input[type="checkbox"]:checked ~ .nav-list {
+        transform: scale(1); }
+    header .navbar .nav-tablet .nav-list {
+      position: absolute;
+      top: 4rem;
+      left: -1rem;
+      background-color: var(--bg-primary);
+      width: 100%;
+      padding: 1rem 0;
+      height: calc(100vh - 6rem);
+      list-style: none;
+      box-shadow: var(--secondary-shadow);
+      transform: scale(0);
+      transform-origin: left;
+      transition: transform 400ms ease-in-out; }
+      header .navbar .nav-tablet .nav-list .nav-item.active {
+        border-left: 0.3em solid var(--primary-clr); }
+      header .navbar .nav-tablet .nav-list .nav-item {
+        padding: 1rem;
+        text-align: center; }
+        header .navbar .nav-tablet .nav-list .nav-item:hover {
+          border-left: 0.3em solid var(--primary-clr); }
+        header .navbar .nav-tablet .nav-list .nav-item a {
+          text-decoration: none;
+          color: var(--primary-clr);
+          font-size: 1.2em; }
+  header .navbar .nav-mobile {
+    display: none; }
+  header .navbar-logo {
+    flex: 1 0 10%;
+    background-image: url("../../assets/images/logo.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding: 1rem;
+    align-self: stretch; }
+  header .navbar-actions {
+    flex: 1 0 45%; }
+
+/* Media Queries */
+@media only screen and (max-width: 992px) {
+  header .navbar .nav-desktop {
+    display: none; }
+  header .navbar .nav-tablet {
+    display: block;
+    flex: 1 0 40%; }
+  header .navbar .nav-mobile {
+    display: none; }
+  header .navbar-logo {
+    flex: 1 0 20%; }
+  header .navbar-actions {
+    flex: 1 0 40%; } }
