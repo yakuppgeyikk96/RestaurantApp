@@ -21,7 +21,6 @@ header {
         flex-wrap: wrap;
 
         .nav-item {
-          padding: 0.3em 0.2em;
           position: relative;
 
           a {
@@ -29,6 +28,7 @@ header {
             text-decoration: none;
             color: var(--text-clr);
             transition: all 500ms;
+            padding: 0.3em 0.2em;
           }
 
           &:hover a {
@@ -59,6 +59,11 @@ header {
     .nav-mobile {
       display: none;
       position: relative;
+
+      img {
+        width: var(--icon-size);
+        height: var(--icon-size);
+      }
 
       input[type="checkbox"] {
         position: absolute;
@@ -133,10 +138,11 @@ header {
         background-color: #f0f0f0;
         border-radius: 50%;
         padding: 0.8rem;
+        cursor: pointer;
 
         img {
-          width: 32px;
-          height: 32px;
+          width: var(--icon-size);
+          height: var(--icon-size);
         }
 
         &::after {
@@ -149,6 +155,7 @@ header {
           width: 1rem;
           text-align: center;
           font-size: 0.8rem;
+          pointer-events: none;
         }
       }
 
@@ -179,8 +186,11 @@ header {
       margin-top: 4rem;
       margin-inline: 5rem;
 
-      p:nth-child(1) {
+      p {
         color: var(--secondary-clr);
+      }
+
+      p:nth-child(1) {
         font-size: var(--fs-xl);
         font-weight: var(--fw-bold);
         line-height: 4rem;
@@ -251,58 +261,38 @@ header {
 }
 
 @media only screen and (max-width: 768px) {
-  
-}
-
-@media only screen and (max-width: 576px) {
   header {
-    .navbar {
-      .nav-mobile {
-        flex: 1 0 20%;
-      }
+    .heading {
+      grid-template-columns: repeat(1, 1fr);
+      position: relative;
 
-      &-logo {
-        flex: 1 0 20%;
-      }
+      &-slogan {
+        position: absolute;
+        top: 5rem;
+        text-align: center;
+        z-index: 10;
 
-      &-actions {
-        flex: 1 0 60%;
-
-        &-bag img {
-          width: 24px;
-          height: 24px;
+        p {
+          margin-bottom: 2rem;
+          color: var(--primary-clr);
         }
+      }
+
+      &-image {
+        filter: brightness(40%);
+        background-blend-mode: multiply;
       }
     }
   }
 }
 
+@media only screen and (max-width: 576px) {}
+
 @media only screen and (max-width: 424px) {
   header {
-    .navbar {
-      .nav-mobile {
-        flex: 1 0 10%;
-
-        .nav-list {
-          width: 12rem;
-        }
-      }
-
-      &-logo {
-        flex: 1 0 20%;
-      }
-
-      &-actions {
-        flex: 1 0 70%;
-
-        &-bag img {
-          width: 16px;
-          height: 16px;
-        }
-
-        &-login {
-          margin-left: 1rem;
-        }
+    .heading {
+      &-slogan {
+        margin-inline: 1rem;
       }
     }
   }

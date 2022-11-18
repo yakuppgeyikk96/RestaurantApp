@@ -5,7 +5,7 @@
   --primary-clr: #fac700;
   --secondary-clr: #231e41;
   --text-clr: black;
-  --logo-size: 150px;
+  --icon-size: 1.5rem;
   --fs-xl: 2.4rem;
   --fs-lg: 1.8rem;
   --fs-md: 1.4rem;
@@ -56,12 +56,20 @@ body {
 
 /* Components */
 div[role="button"] {
+  display: inline-block;
   user-select: none;
   cursor: pointer;
   width: max-content;
   padding: 1em 2em;
   border-radius: 3px;
-  background-color: var(--primary-clr); }
+  background-color: var(--primary-clr);
+  transition: 300ms ease-in-out; }
+
+div[role="button"]:hover {
+  transform: scale(1.04); }
+
+div[role="button"]:active {
+  transform: scale(1); }
 
 .btn-md {
   font-size: var(--fs-sm); }
@@ -86,13 +94,13 @@ header .navbar {
       list-style: none;
       flex-wrap: wrap; }
       header .navbar .nav-desktop .nav-list .nav-item {
-        padding: 0.3em 0.2em;
         position: relative; }
         header .navbar .nav-desktop .nav-list .nav-item a {
           font-size: var(--fs-sm);
           text-decoration: none;
           color: var(--text-clr);
-          transition: all 500ms; }
+          transition: all 500ms;
+          padding: 0.3em 0.2em; }
         header .navbar .nav-desktop .nav-list .nav-item:hover a {
           color: var(--primary-clr); }
         header .navbar .nav-desktop .nav-list .nav-item::after {
@@ -112,6 +120,9 @@ header .navbar {
   header .navbar .nav-mobile {
     display: none;
     position: relative; }
+    header .navbar .nav-mobile img {
+      width: var(--icon-size);
+      height: var(--icon-size); }
     header .navbar .nav-mobile input[type="checkbox"] {
       position: absolute;
       top: 50%;
@@ -166,10 +177,11 @@ header .navbar {
       position: relative;
       background-color: #f0f0f0;
       border-radius: 50%;
-      padding: 0.8rem; }
+      padding: 0.8rem;
+      cursor: pointer; }
       header .navbar-actions-bag img {
-        width: 32px;
-        height: 32px; }
+        width: var(--icon-size);
+        height: var(--icon-size); }
       header .navbar-actions-bag::after {
         content: "2";
         position: absolute;
@@ -179,7 +191,8 @@ header .navbar {
         border-radius: 50%;
         width: 1rem;
         text-align: center;
-        font-size: 0.8rem; }
+        font-size: 0.8rem;
+        pointer-events: none; }
     header .navbar-actions-login {
       background-color: var(--primary-clr);
       cursor: pointer;
@@ -200,8 +213,9 @@ header .heading {
   header .heading-slogan {
     margin-top: 4rem;
     margin-inline: 5rem; }
+    header .heading-slogan p {
+      color: var(--secondary-clr); }
     header .heading-slogan p:nth-child(1) {
-      color: var(--secondary-clr);
       font-size: var(--fs-xl);
       font-weight: var(--fw-bold);
       line-height: 4rem;
@@ -238,28 +252,22 @@ header .heading {
     header .heading-slogan p {
       margin-bottom: 2rem; } }
 
-@media only screen and (max-width: 576px) {
-  header .navbar .nav-mobile {
-    flex: 1 0 20%; }
-  header .navbar-logo {
-    flex: 1 0 20%; }
-  header .navbar-actions {
-    flex: 1 0 60%; }
-    header .navbar-actions-bag img {
-      width: 24px;
-      height: 24px; } }
+@media only screen and (max-width: 768px) {
+  header .heading {
+    grid-template-columns: repeat(1, 1fr);
+    position: relative; }
+    header .heading-slogan {
+      position: absolute;
+      top: 5rem;
+      text-align: center;
+      z-index: 10; }
+      header .heading-slogan p {
+        margin-bottom: 2rem;
+        color: var(--primary-clr); }
+    header .heading-image {
+      filter: brightness(40%);
+      background-blend-mode: multiply; } }
 
 @media only screen and (max-width: 424px) {
-  header .navbar .nav-mobile {
-    flex: 1 0 10%; }
-    header .navbar .nav-mobile .nav-list {
-      width: 12rem; }
-  header .navbar-logo {
-    flex: 1 0 20%; }
-  header .navbar-actions {
-    flex: 1 0 70%; }
-    header .navbar-actions-bag img {
-      width: 16px;
-      height: 16px; }
-    header .navbar-actions-login {
-      margin-left: 1rem; } }
+  header .heading-slogan {
+    margin-inline: 1rem; } }
