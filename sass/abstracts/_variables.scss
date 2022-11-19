@@ -1,5 +1,6 @@
 :root {
   --bg-primary: #f7f7f7;
+  --bg-primary-light: #eee;
   --primary-clr: #fac700;
   --secondary-clr: #231e41;
   --text-clr: black;
@@ -16,8 +17,10 @@
   --fw-semibold: 500;
   --fw-regular: 400;
 
-  --primary-shadow: 0px 15px 5px -15px #919191;
-  --secondary-shadow: 15px 0px 10px -15px #919191;
+  --shadow-clr: #919191;
+  --primary-shadow: 0px 15px 5px -15px var(--shadow-clr);
+  --secondary-shadow: 15px 0px 10px -15px var(--shadow-clr);
+  --tertiary-shadow:  var(--shadow-clr) 0px 3px 8px;
 }
 
 /* Media Queries */

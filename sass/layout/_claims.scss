@@ -1,0 +1,146 @@
+.claims {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 4rem;
+  margin: 4rem 0;
+  gap: 4rem;
+  height: 50rem;
+  background-color: var(--bg-primary-light);
+  overflow: hidden;
+
+  &-photo {
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--tertiary-shadow);
+
+    &:hover .experience {
+      transform: scale(1);
+    }
+
+    &:hover::after {
+      filter: blur(10px) brightness(80%);
+    }
+
+    .experience {
+      position: absolute;
+      background-color: var(--bg-primary);
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: auto;
+      z-index: 1000;
+      transform: scale(0);
+      transform-origin: bottom;
+      transition: transform 500ms ease-out;
+
+      &-container {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin: 1rem;
+        border: 3px dashed var(--bg-primary-light);
+        
+
+        p:first-child {
+          position: relative;
+          font-size: var(--fs-xl);
+          font-weight: var(--fw-bold);
+          color: var(--primary-clr);
+          text-align: center;
+          flex: 10%;
+          border: 3px solid var(--primary-clr);
+        }
+
+        p:last-child {
+          flex: 90%;
+          font-size: var(--fs-md);
+          color: var(--secondary-clr);
+          text-transform: uppercase;
+          font-weight: var(--fw-semibold);
+          margin-left: 1rem;
+        }
+      }
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("../../assets/images/claim_photo.jpg");
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      transition: filter 500ms;
+    }
+  }
+
+  &-articles {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 2rem;
+
+    .articles-heading {
+      font-size: var(--fs-lg);
+      font-weight: var(--fw-bold);
+      color: var(--tertiary-color);
+    }
+
+    .article-list {
+      flex: 1;
+      list-style: none;
+
+      .item {
+        display: flex;
+        margin: 3rem 0;
+
+        .item-number {
+          flex: 20%;
+          text-align: center;
+          font-size: var(--fs-xl);
+          font-weight: var(--fw-bold);
+          color: var(--primary-clr);
+        }
+
+        .item-content {
+          padding-left: 1.5rem;
+          .title {
+            font-size: var(--fs-md);
+            font-weight: var(--fw-bold);
+            color: var(--tertiary-color);
+            margin-bottom: 1rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Media Queries */
+
+@media only screen and (max-width: 992px) {
+  .claims {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    height: 60rem;
+    padding: 0;
+    gap: 1rem;
+  
+    &-articles {
+      .articles-heading {}
+  
+      .article-list {
+        .item {}
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {}
+
+@media only screen and (max-width: 576px) {}
+
+@media only screen and (max-width: 424px) {}
