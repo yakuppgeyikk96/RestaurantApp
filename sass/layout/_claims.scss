@@ -82,11 +82,11 @@
     flex-direction: column;
     justify-content: flex-start;
     padding: 2rem;
+    color: var(--secondary-clr);
 
     .articles-heading {
       font-size: var(--fs-lg);
       font-weight: var(--fw-bold);
-      color: var(--tertiary-color);
     }
 
     .article-list {
@@ -110,7 +110,6 @@
           .title {
             font-size: var(--fs-md);
             font-weight: var(--fw-bold);
-            color: var(--tertiary-color);
             margin-bottom: 1rem;
           }
         }

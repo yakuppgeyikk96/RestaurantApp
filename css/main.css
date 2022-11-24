@@ -4,7 +4,7 @@
   --bg-primary: #f7f7f7;
   --bg-primary-light: #eee;
   --primary-clr: #fac700;
-  --secondary-clr: #231e41;
+  --secondary-clr: #202c39;
   --text-clr: black;
   --icon-size: 1.5rem;
   --fs-xl: 2.4rem;
@@ -341,11 +341,11 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding: 2rem; }
+    padding: 2rem;
+    color: var(--secondary-clr); }
     .claims-articles .articles-heading {
       font-size: var(--fs-lg);
-      font-weight: var(--fw-bold);
-      color: var(--tertiary-color); }
+      font-weight: var(--fw-bold); }
     .claims-articles .article-list {
       flex: 1;
       list-style: none; }
@@ -363,7 +363,6 @@ header {
           .claims-articles .article-list .item .item-content .title {
             font-size: var(--fs-md);
             font-weight: var(--fw-bold);
-            color: var(--tertiary-color);
             margin-bottom: 1rem; }
 
 /* Media Queries */
@@ -374,3 +373,94 @@ header {
     height: 60rem;
     padding: 0;
     gap: 1rem; } }
+
+.categories {
+  height: 40rem;
+  margin: 2rem 0;
+  padding: 2rem 4rem;
+  width: 90%;
+  margin-inline: auto; }
+  .categories-heading {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 2rem 0; }
+    .categories-heading p {
+      flex: 1;
+      font-size: var(--fs-lg);
+      font-weight: var(--fw-bold);
+      color: var(--secondary-color); }
+  .categories-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem; }
+    .categories-cards .card {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--bg-primary-light);
+      border-radius: 3px; }
+      .categories-cards .card .card-icon {
+        position: relative;
+        transform-style: preserve-3d; }
+        .categories-cards .card .card-icon img {
+          width: 64px;
+          height: 64px;
+          margin: 2rem 3rem;
+          transition: transform 500ms; }
+        .categories-cards .card .card-icon::after {
+          content: "";
+          position: absolute;
+          bottom: 1rem;
+          left: 50%;
+          width: 2rem;
+          height: 2rem;
+          background: var(--primary-clr);
+          border-radius: 50%;
+          transform: translate3d(-50%, 0, -1px);
+          transition: transform 500ms; }
+      .categories-cards .card .card-content p:first-child {
+        color: var(--secondary-clr);
+        font-size: var(--fs-md);
+        font-weight: var(--fw-bold);
+        margin-bottom: 1rem; }
+      .categories-cards .card:hover .card-icon img {
+        transform: translateY(-0.5rem); }
+      .categories-cards .card:hover .card-icon::after {
+        transform: translate3d(-50%, 0, -1px) scale(1.2); }
+
+@media screen and (max-width: 1200px) {
+  .categories {
+    width: 100%;
+    padding: 2rem 2rem; } }
+
+@media screen and (max-width: 996px) {
+  .categories {
+    width: 80%; }
+    .categories-cards {
+      grid-template-columns: 1fr; } }
+
+@media screen and (max-width: 768px) {
+  .categories {
+    width: 90%; } }
+
+@media screen and (max-width: 576px) {
+  .categories {
+    width: 100%; }
+    .categories-heading {
+      flex-direction: column;
+      align-items: center; }
+      .categories-heading p {
+        margin-bottom: 1rem; }
+    .categories-cards .card {
+      padding: 1rem 0; }
+      .categories-cards .card .card-icon img {
+        margin: 2rem; } }
+
+@media screen and (max-width: 450px) {
+  .categories {
+    padding: 2rem 1rem; }
+    .categories-cards .card .card-icon img {
+      width: 48px;
+      height: 48px;
+      margin: 1rem; } }
